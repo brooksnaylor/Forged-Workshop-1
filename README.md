@@ -1,4 +1,4 @@
-# Forged-Workshop-1
+# Forged Workshop 1
 
 ## Exercises
 

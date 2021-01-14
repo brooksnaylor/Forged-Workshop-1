@@ -4,7 +4,7 @@
 
 ### Basic Requirements
 
-#### Numbers
+#### Numbers (5 points each)
 
 1. Enter the following expressions into your console.
 
@@ -54,7 +54,7 @@
 
    What do the results tell you about the first operand to the modulus operator?
 
-#### Strings
+#### Strings (5 points each)
 
 1. Write a string that represents your full name.
 
@@ -81,7 +81,7 @@
    'Do other ' * 'operators work with string concatenation?
    ```
   
-#### Functions
+#### Functions (5 points each)
 
 1. In your console, copy the following function and verify
    that the following invocations match your expectations:
@@ -214,11 +214,11 @@
 
 ![google geometry answer](google-geometry-answer.gif)
 
-### More Practice
+### More Practice (10 points each)
 
 Translate the rest of the geometric formulas found <a href="http://www.gbcnv.edu/documents/ASC/docs/00000005.pdf" target="_blank">here</a> into JavaScript functions.
 
-### Advanced (extra practice)
+### Advanced (15 points each)
 
 1. Compound interest can be calculated with the formula:
 

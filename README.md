@@ -1,9 +1,7 @@
 # Forged Workshop 1
 
 
-### Numbers
-
-#### Basic Practice (5 points each)
+#### Numbers
 
 1. Enter the following expressions into your console.
 
@@ -19,14 +17,25 @@
    are they?
 
    ```js
-   3 + 2 * 4 - 1
-   (3 + 2) * (4 - 1)
+   3 + 2 * 4 - 1;        // => 10
+   (3 + 2) * (4 - 1);    // => 15
    ```
 
-3. Calculate 50 years in minutes using the console.
+   **ANSWER**: The first expression evaluates to 10 and the second expression evaluates to 15. The addition of parentheses in the second example to wrap `(3 + 2)` and `(4 - 1)` changes the order in which the code is evaluated. This is because JavaScript evaluates mathematical expressions according to an order of operations, just like in mathematics. The order is PEMDAS (Parentheses, Exponents, Multiplication, Division, Addition, Subtraction).
 
-4. What is the percentage of letters in the english alphabet that are vowels (including y)? Use the
+3. Calculate how old you are in minutes using the console.
+
+   ```js
+   // If you are 30 years old:
+   30 * 365 * 24 * 60;     // => 15768000
+   ```
+
+4. What is the percentage of people in the class with brown hair? Use the
    console to find out.
+
+   ```js
+   12 / 15 * 100;     // => 80
+   ```
 
 5. Try the following expressions in the console:
 
@@ -42,6 +51,8 @@
    What is the significance of the result? How does the `%` (modulus) operator
    work?
 
+   **ANSWER**: The modulo operator works by dividing the first operand (the one to the left of the %) by the second operand (the  one to the right of the %) and returning the remainder of that division.
+
 6. Try the following:
 
    ```js
@@ -53,13 +64,21 @@
 
    What do the results tell you about the first operand to the modulus operator?
 
-### Strings
+   **ANSWER**: The first operand is the number being divided.
 
-#### Basic Practice (5 points each)
+#### Strings
 
 1. Write a string that represents your full name.
 
+   ```js
+   'Ernest Hemingway';
+   ```
+
 2. Write a string that represents your favorite food.
+
+   ```js
+   'Steak';
+   ```
 
 3. Use the `+` operator to combine (known as *concatenation*) two or more
    strings, *e.g.*:
@@ -70,9 +89,17 @@
    ```
 
    + Your first and last names (as shown above)
-   + Your best friend's full name
-   + Your home town, state and country
-
+      ```js
+      "Ernest" + " " + "Hemingway";
+      ```
+   + Your parents' full names
+      ```js
+      "Clarence Hemingway" + " " + "Grace Hemingway";
+      ```
+   + Your home town and state
+      ```js
+      "Oak Park" + ", " + "Illinois";
+      ```
 
 4. Fix the errors in the following strings:
 
@@ -81,7 +108,14 @@
    'hmm something is not right"
    'Do other ' * 'operators work with string concatenation?
    ```
-  
+
+   **FIXED**:
+   ```js
+   "Where are all the quotes?";
+   "hmm something is not right";
+   'Do other ' + 'operators work with string concatenation?';
+   ```
+   
 ### Functions
 
 #### Basic Practice (5 points each)
@@ -104,9 +138,13 @@
 2. Write a sentence in plain English describing how `square(square(15))` is
    evaluated.
 
+   **ANSWER**: The inner function call `square(15)` is evaluated first, then its result is used to evaluate the outer function call.
+
 3. Rename `square`'s `num` parameter in your above code to `monkey`, and
    rename the uses of that parameter in the body to `monkey` as well. Will the
    function `square` still work? Why or why not?
+
+   **ANSWER**: The function `square` will still work, because the parameter `monkey` simply represents a placeholder for an actual value that is provided when the function is called. Thus, it does not need to be named semantically for the code to work.
 
 4. What is wrong with the following definitions of `square`? Write a sentence or
    two describing the issue(s); then, try copying the erroneous examples into a
@@ -118,15 +156,25 @@
    function square(monkey) {
      return x * x;
    }
+   ```
 
+   **PROBLEM**: There is no reference to x available. The parameter `monkey` should be refactored to `x` or vice versa for the function to work.
+
+   ```js
    function square(5) {
      return 5 * 5;
    }
+   ```
 
+   **PROBLEM**: The number 5 cannot be used as a function parameter. Parameters must be placeholders/labels, not actual values.
+
+   ```js
    function square("x") {
      return "x" * "x";
    }
    ```
+
+   **PROBLEM**: Similar to above, the string `"x"` cannot be used as a function parameter. Parameters must be placeholders/labels, not actual values. Also, strings cannot be multiplied together. The parameter should be refactored to `x` and the body of the function should be refactored to: `return x * x;`
 
 5. Fix the invalid syntax in the following functions (you can copy and paste these
    invalid definitions into your console and then edit them there):
@@ -144,6 +192,20 @@
      return x * x;
    ```
 
+   **FIXED**:
+   ```js
+   function square1(x) {
+     return x * x;
+   }
+
+   function square2(x) {
+     return x * x;
+   }
+
+   function square3(x) {
+     return x * x;
+   }
+
 6. The following functions exhibit poor style -- fix these issues using the
    original version of `square` as a reference.
 
@@ -159,6 +221,21 @@
    }
    ```
 
+   **FIXED**:
+   ```js
+   function square(x) {
+      return x * x;
+   }
+
+   function square(x) {
+      return x * x;
+   }
+
+   function square(x) {
+      return x * x;
+   }
+   ```
+
 7. Complete the function `cube` that returns the cube of x:
 
   ```js
@@ -167,28 +244,61 @@
   }
   ```
 
+  **ANSWER**:
+  ```js
+  function cube(x) {
+    return x * x * x;
+  }
+
+  // OR
+
+  function cube(x) {
+    return Math.pow(x, 3);
+  }
+  ```
+
 8. Complete the function `fullName` that should take two parameters, `firstName`
    and `lastName`, and returns the `firstName` and `lastName` concatenated
    together with a space in between.
 
-  ```js
-  // don't forget the parameters!
-  function fullName() {
+   ```js
+   // don't forget the parameters!
+   function fullName() {
     // your code here
-  }
-  fullName("John", "Doe") // => "John Doe"
-  ```
+   }
+   fullName("John", "Doe") // => "John Doe"
+   ```
+
+   **ANSWER**:
+   ```js
+   function fullName(firstName, lastName) {
+      return firstName + " " + lastName;
+   }
+   ```
 
 9. Write a function `average` that takes two numbers as input (parameters), and
    returns the average of those numbers.
 
+   **ANSWER**:
+   ```js
+   function average(num1, num2) {
+      return (num1 + num2) / 2;
+   }
+
 10. Write a function `greeter` that takes a name as an argument and *greets*
     that name by returning something along the lines of `"Hello, <name>!"`
+
+  **ANSWER**:
+   ```js
+   function greeter(name) {
+      return "Hello, " + name + "!";
+   }
+   ```
 
 11. Using the document found at <a href="http://www.gbcnv.edu/documents/ASC/docs/00000005.pdf" target="_blank">this link</a>, translate the first page of geometric
     formulas into JavaScript functions.
 
-    As an example, a function to compute the perimeter of a rectangle might look
+    **ANSWER**: As an example, a function to compute the perimeter of a rectangle might look
     like this:
 
     ```js
@@ -216,37 +326,3 @@
 
 
 ![google geometry answer](google-geometry-answer.gif)
-
-#### More Practice (10 points each)
-
-Translate the rest of the geometric formulas found <a href="http://www.gbcnv.edu/documents/ASC/docs/00000005.pdf" target="_blank">here</a> into JavaScript functions.
-
-#### Advanced (15 points each)
-
-1. Compound interest can be calculated with the formula:
-
-    ![future value](future-value.png)
-
-    - *F*: future value
-    - *P*: present value
-    - *i*: nominal interest rate
-    - *n*: compounding frequency
-    - *t*: time
-
-  Write a function `futureValue` that can be used to calculate the *future value*
-  of a quantity of money using compound interest.
-
-  Use the function to calculate what the future value of $1700 (*P* = 1700)
-  deposited in a bank that pays an annual interest rate of 4.7% (*i* = 0.047),
-  compounded quarterly (*n* = 4) after 6 years (*t* = 6) (you can use `Math.pow`
-  to do exponentiation).
-
-2. Write a `power` function that accepts the parameters `base` and `exponent`
-   and returns the result. Replace `square` and `cube` with the `power` function
-   you just wrote. Do not use `Math.pow`.
-
-3. Write your own square-root function called `sqrt` that accepts a `number`
-   parameter and returns an approximate square root. Square-root approximations
-   make use of averages. Be sure to use the `average` function you previously
-   wrote. The first version of your square root function should perform no more
-   than 3 successive averages.
